@@ -1,16 +1,20 @@
-dist:
-  - trusty
-  - xenial
-  - bionic
 language: python
 cache: pip
 
 jobs:
   include:
-    addons:
-      mariadb: 10.3
-    addons:
-      mariadb: 10.4
+    - dist: trusty
+      addons: mariadb: 10.3
+    - dist: trusty
+      addons: mariadb: 10.4
+    - dist: xenial
+      addons: mariadb: 10.3
+    - dist: xenial
+      addons: mariadb: 10.4
+    - dist: bionic
+      addons: mariadb: 10.3
+    - dist: bionic
+      addons: mariadb: 10.4
 
 install:
   - mysql -u root -e "SET GLOBAL character_set_server = 'utf8mb4'"
