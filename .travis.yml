@@ -38,3 +38,5 @@ install:
   # second attempt
   - mysql -u root -e "SET Password=PASSWORD('travis')"
   - mysql -u root --password=travis -e "FLUSH PRIVILEGES"
+
+script: mysql --version
