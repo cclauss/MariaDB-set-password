@@ -4,5 +4,5 @@ jobs:
         mariadb: 10.3
     - addons:
         mariadb: 10.4
-install: mysql -e "SET Password=PASSWORD('travis')"
+install: sudo mysql -e "SET Password=PASSWORD('travis')"
 script: mysql --version
