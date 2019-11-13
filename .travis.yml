@@ -24,7 +24,7 @@ jobs:
 
 install:
   - mysql --version
-  - mysql -u root -e "SET Password=PASSWORD('travis')"
+  - mysql -e "SET Password=PASSWORD('travis')"
   - MYSQL_CMD="mysql -u root --password=travis -e"
 
   - $MYSQL_CMD "SET GLOBAL character_set_server = 'utf8mb4'"
