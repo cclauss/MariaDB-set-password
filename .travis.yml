@@ -23,6 +23,7 @@ jobs:
         mariadb: 10.4
 
 install:
+  - mysql --version
   - mysql -u root -e "SET GLOBAL character_set_server = 'utf8mb4'"
   - mysql -u root -e "SET GLOBAL collation_server = 'utf8mb4_unicode_ci'"
 
@@ -36,4 +37,4 @@ install:
   - mysql -u root -e "UPDATE mysql.global_priv SET Password=PASSWORD('travis') WHERE User='root'" || true
   # second attempt
   - mysql -u root -e "SET Password=PASSWORD('travis')"
-  - mysql -u root -e "FLUSH PRIVILEGES"
+  - mysql -u root -p travis -e "FLUSH PRIVILEGES"
